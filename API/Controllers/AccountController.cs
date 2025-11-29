@@ -12,7 +12,7 @@ namespace API.Controllers;
 public class AccountController(AppDbContext context, ITokenService tokenService) : BaseApiController
 {
     [HttpPost("register")]
-    public async Task<ActionResult<UserDto>> Register([FromQuery] RegisterDto registerDto)
+    public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
     {
         if (await EmailExists(registerDto.Email)) return BadRequest("Email is already taken");
 
